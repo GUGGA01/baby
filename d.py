@@ -25,7 +25,7 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
 Commands List:
 /start - Welcome Message
 /help - Command Usage Guide
-/bgmi <ip> <port> <time> - Start Attack
+/kiss <ip> <port> <time> - Start Attack
 /add <userid> - Approve User (Admin Only)
 /remove <userid> - Disapprove User
 /broadcast <message> - Send Message to Approved Users (Admin Only)
@@ -44,7 +44,7 @@ async def kiss(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         return
 
     if len(context.args) != 3:
-        await update.message.reply_text("❌ Correct Usage: /bgmi <ip> <port> <time>")
+        await update.message.reply_text("❌ Correct Usage: /kiss <ip> <port> <time>")
         return
 
     ip, port, time = context.args
@@ -165,7 +165,7 @@ def main():
 
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("help", help_command))
-    app.add_handler(CommandHandler("bgmi", bgmi))
+    app.add_handler(CommandHandler("kiss", kiss))
     app.add_handler(CommandHandler("add", add))
     app.add_handler(CommandHandler("remove", remove))
     app.add_handler(CommandHandler("broadcast", broadcast))
